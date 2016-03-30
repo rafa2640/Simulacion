@@ -17,22 +17,22 @@ def Conmix(numax=1):
     return nums
 
 
-def aleatvalue(N,x,px):
+def aleatvalue(N,x,pobrax):
     
     X = []
     u =  Conmix(N)    
-    Px = np.cumsum(px)    
+    P = np.cumsum(pobrax)    
     
 
     print "------"
     for index in range(N):
-        for i in range (1,len(Px)):
+        for i in range (1,len(P)):
            
-            if(u[index]<Px[0] ):
+            if(u[index]<P[0] ):
                 X.append(x[0])
                 break
                 
-            if(u[index]<Px[i] and u[index]>=Px[i-1]  ):                
+            if(u[index]<P[i] and u[index]>=P[i-1]  ):                
                 X.append(x[i-1])
                 break
             
